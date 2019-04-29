@@ -1,7 +1,8 @@
 //cache name
 var CACHE_NAME = 'my-site-cache-v1';
 var urlsToCache = [
-  '/index'
+  './',
+  './index.html'
 ];
 
 
@@ -12,7 +13,9 @@ self.addEventListener('install', function(event) {
       .then(function(cache) {
         console.log('Opened cache');
         return cache.addAll(urlsToCache);
-      }).catch(function(e){
+      }).then(function(out){
+        console.log(out);
+    }).catch(function(e){
     console.log(e);
 })
   );
